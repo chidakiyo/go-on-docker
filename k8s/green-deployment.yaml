@@ -1,0 +1,17 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: goapp
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: goapp-docker
+        image: chidakiyo/go-on-docker:green
+        ports:
+        - containerPort: 8080
+
