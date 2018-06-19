@@ -19,8 +19,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	d := time.Now().String()
 
-	o.Write([]byte("STDOUT : " + d)) // output stdout
-	e.Write([]byte("STDERR : " + d)) // output stderr
+	o.Write([]byte("STDOUT : " + d + "\n")) // output stdout
+	e.Write([]byte("STDERR : " + d + "\n")) // output stderr
 
 	fmt.Fprintf(w, "[blue] Path : %s", r.URL.Path[1:])
 }
