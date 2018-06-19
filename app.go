@@ -14,13 +14,10 @@ func main() {
 
 func handler(w http.ResponseWriter, r *http.Request) {
 
-	o := os.Stdout
-	e := os.Stderr
-
 	d := time.Now().String()
 
-	o.Write([]byte("STDOUT : " + d + "\n")) // output stdout
-	e.Write([]byte("STDERR : " + d + "\n")) // output stderr
+	fmt.Fprint(os.Stdout, "STDOUT : " + d + "\n") // stdout
+	fmt.Fprint(os.Stderr, "STDERR : " + d + "\n") // stderr
 
 	fmt.Fprintf(w, "[blue] Path : %s", r.URL.Path[1:])
 }
